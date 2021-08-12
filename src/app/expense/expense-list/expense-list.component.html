@@ -1,7 +1,15 @@
 <table>
   <tbody>
+  <tr>
   <tr *ngFor="let expense of responseExpenses.expenses">
-
+    <td></td>
+    <td>{{expense.user}}</td>
+    <td>{{expense.amount}}</td>
+    <td>{{expense.currency}}</td>
+    <td>{{expense.description}}</td>
+    <td>{{expense.expenseCategory}}</td>
+    <td>{{expense.payMethod}}</td>
+    <td>{{expense.payDate}}</td>
   </tr>
   </tbody>
 </table>
