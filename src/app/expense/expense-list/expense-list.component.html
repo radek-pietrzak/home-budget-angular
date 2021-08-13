@@ -1,8 +1,6 @@
-<table>
+<table class="striped">
   <tbody>
-  <tr>
   <tr *ngFor="let expense of responseExpenses.expenses">
-    <td></td>
     <td>{{expense.user}}</td>
     <td>{{expense.amount}}</td>
     <td>{{expense.currency}}</td>
