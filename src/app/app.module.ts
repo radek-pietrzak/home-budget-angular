@@ -6,6 +6,8 @@ import {RouterModule, Routes} from "@angular/router";
 import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TestComponent } from './expense/test/test.component';
 
 const routes: Routes = [
   {
@@ -21,14 +23,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ExpenseListComponent
+    ExpenseListComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
