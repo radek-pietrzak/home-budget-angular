@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TestComponent } from './expense/test/test.component';
 import { ExpenseHeaderSortComponent } from './expense/expense-header-sort/expense-header-sort.component';
+import { ExpensePageComponent } from './expense/expense-page/expense-page.component';
 
 const routes: Routes = [
   {
@@ -16,8 +17,11 @@ const routes: Routes = [
     path: 'expense-list'
   }, {
     path: '',
-    redirectTo: '/expense-list',
+    redirectTo: '/expense',
     pathMatch: 'full'
+  }, {
+    component: ExpenseListComponent,
+    path: 'expense'
   }
 ]
 
@@ -26,7 +30,8 @@ const routes: Routes = [
     AppComponent,
     ExpenseListComponent,
     TestComponent,
-    ExpenseHeaderSortComponent
+    ExpenseHeaderSortComponent,
+    ExpensePageComponent
   ],
   imports: [
     BrowserModule,
