@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TestComponent } from './expense/test/test.component';
+import { ExpenseHeaderSortComponent } from './expense/expense-header-sort/expense-header-sort.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ExpenseListComponent,
-    TestComponent
+    TestComponent,
+    ExpenseHeaderSortComponent
   ],
   imports: [
     BrowserModule,
