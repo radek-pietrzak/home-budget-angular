@@ -12,7 +12,6 @@ export class ExpenseCriteriaRequestService {
   constructor() {
   }
 
-
   get criteriaRequest(): ExpenseCriteriaRequest {
     return this._criteriaRequest;
   }

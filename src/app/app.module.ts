@@ -9,7 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TestComponent } from './expense/test/test.component';
 import { ExpenseHeaderSortComponent } from './expense/expense-header-sort/expense-header-sort.component';
-import { ExpensePageComponent } from './expense/expense-page/expense-page.component';
+import { ExpensePageResponseComponent } from './expense/expense-page-response/expense-page-response.component';
+import { ExpensePageHeaderMonthComponent } from './expense/expense-page-header-month/expense-page-header-month.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
     redirectTo: '/expense',
     pathMatch: 'full'
   }, {
-    component: ExpenseListComponent,
+    component: ExpensePageResponseComponent,
     path: 'expense'
   }
 ]
@@ -31,7 +32,8 @@ const routes: Routes = [
     ExpenseListComponent,
     TestComponent,
     ExpenseHeaderSortComponent,
-    ExpensePageComponent
+    ExpensePageResponseComponent,
+    ExpensePageHeaderMonthComponent,
   ],
   imports: [
     BrowserModule,
