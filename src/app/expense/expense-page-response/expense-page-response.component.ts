@@ -14,7 +14,7 @@ export class ExpensePageResponseComponent implements OnInit {
   private criteriaRequest: ExpenseCriteriaRequestService;
 
 
-  _responseExpenses: ResponseExpenses = {};
+  private _responseExpenses: ResponseExpenses = {};
 
   constructor(expenseService: ExpenseService, criteriaRequest: ExpenseCriteriaRequestService) {
     this.expenseService = expenseService;

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ExpenseCriteriaRequest} from "../model/expense-criteria-request";
 import {Page} from "../model/page";
+import {SearchSpecCriterion} from "../model/search-spec-criterion";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,26 @@ export class ExpenseCriteriaRequestService {
   }
 
 
+
+
   get page(): Page {
     return this._page;
   }
+
+  setCriteriaRequestBySpec(
+    searchCriterion: SearchSpecCriterion,
+    fromAmountCriterion: SearchSpecCriterion,
+    toAmountCriterion: SearchSpecCriterion,
+    fromPayDateCriterion: SearchSpecCriterion,
+    toPayDateCriterion: SearchSpecCriterion
+  ): void {
+    this._criteriaRequest.searchSpecCriteria = [
+      searchCriterion,
+      fromAmountCriterion,
+      toAmountCriterion,
+      fromPayDateCriterion,
+      toPayDateCriterion
+    ];
+  }
+
 }

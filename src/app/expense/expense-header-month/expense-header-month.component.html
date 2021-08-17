@@ -1,17 +1,49 @@
-<div style="font-size: xx-large">
-  Expense List&nbsp;&nbsp;&nbsp;
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    <i class="material-icons">arrow_back</i>&nbsp;
-  </button>
-  {{getMonthName()}} &nbsp;
-  {{getYear()}}
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    <i class="material-icons">arrow_forward</i>
-  </button>&nbsp;
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    <i class="material-icons">date_range</i>
-  </button>&nbsp;
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    <i class="material-icons"  style="font-size: small; font-family: Comic Sans MS, Comic Sans, cursive">NOW</i>
-  </button>
-</div>
+<ul style="font-size: xx-large">
+  <li class="float-left">
+    Expense List&nbsp;&nbsp;&nbsp;
+  </li>
+  <li class="float-left">
+    <ul>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          <i class="material-icons">arrow_back</i>&nbsp;
+        </button>
+      </li>
+      <li class="float-left">
+        &nbsp;&nbsp;
+      </li>
+      <li class="float-left">
+        {{getMonthName()}} &nbsp;
+        {{getYear()}}
+      </li>
+      <li class="float-left">
+        &nbsp;&nbsp;
+      </li>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          <i class="material-icons">arrow_forward</i>
+        </button>&nbsp;
+      </li>
+    </ul>
+  </li>
+  <li class="float-left">
+    <ul class="float-left">
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          <i class="material-icons">date_range</i>
+        </button>&nbsp;
+      </li>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          <i class="material-icons" style="font-size: small; font-family: Comic Sans MS, Comic Sans, cursive">NOW</i>
+        </button>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+

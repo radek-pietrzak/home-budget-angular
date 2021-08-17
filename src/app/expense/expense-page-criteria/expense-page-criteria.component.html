@@ -1,21 +1,44 @@
-<div style="font-weight: bold">
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    <i class="material-icons">arrow_back</i>
-  </button>&nbsp;
-  Page:  {{ getPageNumber() + '/' + getTotalPages()}}
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    <i class="material-icons">arrow_forward</i>
-  </button>&nbsp;
-   Page Size:&nbsp;
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    10
-  </button>&nbsp;
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    20
-  </button>&nbsp;
-  <button type="button" class="btn-floating waves-effect btn-light-blue">
-    50
-  </button>
-</div>
+<ul class="float-left" style="font-weight: bold">
+  <li class="float-left">
+    <ul>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          <i class="material-icons">arrow_back</i>
+        </button>&nbsp;
+      </li>
+      <li class="float-left">
+        Page:  {{ getPageNumber() + '/' + getTotalPages()}}
+      </li>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          <i class="material-icons">arrow_forward</i>
+        </button>&nbsp;
+      </li>
+    </ul>
+  </li>
+  <li class="float-left">
+    <ul>
+      <li class="float-left">
+        Page Size:&nbsp;
+      </li>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          10
+        </button>&nbsp;
+      </li>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          20
+        </button>&nbsp;
+      </li>
+      <li class="float-left">
+        <button type="button" class="btn-floating waves-effect btn-light-blue">
+          50
+        </button>
+      </li>
+    </ul>
+  </li>
+</ul>
+
 
 
