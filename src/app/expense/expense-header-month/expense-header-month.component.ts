@@ -3,11 +3,11 @@ import {ExpensePageResponseComponent} from "../expense-page-response/expense-pag
 
 @Component({
   selector: 'app-expense-page-header-month',
-  templateUrl: './expense-page-header-month.component.html',
+  templateUrl: './expense-header-month.component.html',
   styleUrls: ['../expense.css'],
   providers: []
 })
-export class ExpensePageHeaderMonthComponent implements OnInit {
+export class ExpenseHeaderMonthComponent implements OnInit {
 
   constructor(private response: ExpensePageResponseComponent) {
   }

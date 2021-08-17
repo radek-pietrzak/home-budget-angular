@@ -10,7 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TestComponent } from './expense/test/test.component';
 import { ExpenseHeaderSortComponent } from './expense/expense-header-sort/expense-header-sort.component';
 import { ExpensePageResponseComponent } from './expense/expense-page-response/expense-page-response.component';
-import { ExpensePageHeaderMonthComponent } from './expense/expense-page-header-month/expense-page-header-month.component';
+import { ExpenseHeaderMonthComponent } from './expense/expense-header-month/expense-header-month.component';
 
 const routes: Routes = [
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
     TestComponent,
     ExpenseHeaderSortComponent,
     ExpensePageResponseComponent,
-    ExpensePageHeaderMonthComponent,
+    ExpenseHeaderMonthComponent,
   ],
   imports: [
     BrowserModule,

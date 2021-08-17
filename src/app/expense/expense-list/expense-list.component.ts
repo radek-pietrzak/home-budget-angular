@@ -10,9 +10,7 @@ import {ExpensePageResponseComponent} from "../expense-page-response/expense-pag
 })
 export class ExpenseListComponent implements OnInit {
 
-
   constructor(private response: ExpensePageResponseComponent) {
-
   }
 
   ngOnInit(): void {
