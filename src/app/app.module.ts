@@ -11,6 +11,7 @@ import { TestComponent } from './expense/test/test.component';
 import { ExpenseHeaderSortComponent } from './expense/expense-header-sort/expense-header-sort.component';
 import { ExpensePageResponseComponent } from './expense/expense-page-response/expense-page-response.component';
 import { ExpenseHeaderMonthComponent } from './expense/expense-header-month/expense-header-month.component';
+import { ExpensePageCriteriaComponent } from './expense/expense-page-criteria/expense-page-criteria.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
     ExpenseHeaderSortComponent,
     ExpensePageResponseComponent,
     ExpenseHeaderMonthComponent,
+    ExpensePageCriteriaComponent,
   ],
   imports: [
     BrowserModule,
