@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ExpensePageResponseComponent} from "../expense-page-response/expense-page-response.component";
+import {ExpenseCriteriaRequestService} from "../service/expense-criteria-request.service";
 
 @Component({
   selector: 'app-expense-page-header-month',
@@ -8,8 +9,15 @@ import {ExpensePageResponseComponent} from "../expense-page-response/expense-pag
   providers: []
 })
 export class ExpenseHeaderMonthComponent implements OnInit {
+  private response: ExpensePageResponseComponent
+  private request: ExpenseCriteriaRequestService;
 
-  constructor(private response: ExpensePageResponseComponent) {
+  constructor(
+    response: ExpensePageResponseComponent,
+    request: ExpenseCriteriaRequestService,
+  ) {
+    this.response = response;
+    this.request = request;
   }
 
   ngOnInit(): void {
@@ -70,5 +78,51 @@ export class ExpenseHeaderMonthComponent implements OnInit {
     }
     return 'Can\'t read the year';
   }
+
+  previousMonth(): void {
+    const monthString = this.response.responseExpenses.requestedDate?.substring(5, 7);
+    let monthNumber = Number(monthString);
+    const yearString = this.response.responseExpenses.requestedDate?.substring(0, 4);
+    let yearNumber = Number(yearString);
+    monthNumber -= 1;
+    if (monthNumber < 1) {
+      monthNumber = 12;
+      yearNumber = yearNumber - 1;
+    }
+
+    if (monthNumber < 10) {
+      this.request.criteriaRequest.requestedDate = yearNumber + '-0' + monthNumber + '-01';
+    } else {
+      this.request.criteriaRequest.requestedDate = yearNumber + '-' + monthNumber + '-01';
+    }
+
+    this.response.getMonthExpenses();
+  }
+
+  nextMonth(): void {
+    const monthString = this.response.responseExpenses.requestedDate?.substring(5, 7);
+    let monthNumber = Number(monthString);
+    const yearString = this.response.responseExpenses.requestedDate?.substring(0, 4);
+    let yearNumber = Number(yearString);
+    monthNumber += 1;
+    if (monthNumber > 12) {
+      monthNumber = 1;
+      yearNumber = yearNumber + 1;
+    }
+
+    if (monthNumber < 10) {
+      this.request.criteriaRequest.requestedDate = yearNumber + '-0' + monthNumber + '-01';
+    } else {
+      this.request.criteriaRequest.requestedDate = yearNumber + '-' + monthNumber + '-01';
+    }
+
+    this.response.getMonthExpenses();
+  }
+
+  changeToCurrentMonth(): void {
+    this.request.criteriaRequest.requestedDate = this.response.responseExpenses.currentDate;
+    this.response.getMonthExpenses();
+  }
+
 
 }
