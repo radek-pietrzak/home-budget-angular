@@ -18,10 +18,7 @@ export class ExpenseHeaderMonthComponent implements OnInit {
   monthList = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December']
 
-  formMonthYear = new FormGroup({
-    month: new FormControl('January', Validators.required),
-    year: new FormControl('2021', Validators.required)
-  })
+  formMonthYear: FormGroup
 
   constructor(
     response: ExpensePageResponseComponent,
@@ -29,6 +26,10 @@ export class ExpenseHeaderMonthComponent implements OnInit {
   ) {
     this.response = response;
     this.request = request;
+    this.formMonthYear = new FormGroup({
+      month: new FormControl(this.getMonthName(), Validators.required),
+      year: new FormControl(this.getYear(), Validators.required)
+    });
   }
 
   ngOnInit(): void {
@@ -132,6 +133,10 @@ export class ExpenseHeaderMonthComponent implements OnInit {
 
   editMonthYear() {
     this.flagEditMonthYear = true
+    this.formMonthYear = new FormGroup({
+      month: new FormControl(this.getMonthName(), Validators.required),
+      year: new FormControl(this.getYear(), Validators.required)
+    });
   }
 
   changeToCurrentMonth(): void {
