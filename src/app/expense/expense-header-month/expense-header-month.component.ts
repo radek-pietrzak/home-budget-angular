@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ExpensePageResponseComponent} from "../expense-page-response/expense-page-response.component";
 import {ExpenseCriteriaRequestService} from "../service/expense-criteria-request.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-expense-page-header-month',
@@ -10,7 +11,17 @@ import {ExpenseCriteriaRequestService} from "../service/expense-criteria-request
 })
 export class ExpenseHeaderMonthComponent implements OnInit {
   private response: ExpensePageResponseComponent
-  private request: ExpenseCriteriaRequestService;
+  private request: ExpenseCriteriaRequestService
+
+  flagEditMonthYear = false
+
+  monthList = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December']
+
+  formMonthYear = new FormGroup({
+    month: new FormControl('January', Validators.required),
+    year: new FormControl('2021', Validators.required)
+  })
 
   constructor(
     response: ExpensePageResponseComponent,
@@ -119,10 +130,79 @@ export class ExpenseHeaderMonthComponent implements OnInit {
     this.response.getMonthExpenses();
   }
 
+  editMonthYear() {
+    this.flagEditMonthYear = true
+  }
+
   changeToCurrentMonth(): void {
     this.request.criteriaRequest.requestedDate = this.response.responseExpenses.currentDate;
     this.response.getMonthExpenses();
   }
 
+  monthYearSubmit(): void {
+    const month: any = {
+      month: this.formMonthYear.value.month,
+      year: this.formMonthYear.value.year
+    }
+
+    this.getMonthStringNumber(month);
+    const year = month.year
+
+    this.request.criteriaRequest.requestedDate = year + '-' + this.getMonthStringNumber(month) + '-01'
+
+    this.flagEditMonthYear = false
+
+    this.response.getMonthExpenses()
+  }
+
+  monthYearDiscard(): void {
+    this.flagEditMonthYear = false
+  }
+
+  getMonthStringNumber(month: any): string {
+    let monthNumber: string;
+    switch (month.month) {
+      case 'January':
+        monthNumber = '01';
+        break;
+      case 'February':
+        monthNumber = '02';
+        break;
+      case 'March':
+        monthNumber = '03';
+        break;
+      case 'April':
+        monthNumber = '04';
+        break;
+      case 'May':
+        monthNumber = '05';
+        break;
+      case 'June':
+        monthNumber = '06';
+        break;
+      case 'July':
+        monthNumber = '07';
+        break;
+      case 'August':
+        monthNumber = '08';
+        break;
+      case 'September':
+        monthNumber = '09';
+        break;
+      case 'October':
+        monthNumber = '10';
+        break;
+      case 'November':
+        monthNumber = '11';
+        break;
+      case 'December':
+        monthNumber = '12';
+        break;
+      default:
+        monthNumber = '01';
+    }
+
+    return monthNumber;
+  }
 
 }

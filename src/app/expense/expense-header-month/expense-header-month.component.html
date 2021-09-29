@@ -3,37 +3,60 @@
     Expense List&nbsp;&nbsp;&nbsp;
   </li>
   <li class="float-left">
-    <ul>
-      <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="previousMonth()">
-          <i class="material-icons">arrow_back</i>&nbsp;
-        </button>
-      </li>
-      <li class="float-left">
-        &nbsp;&nbsp;
-      </li>
-      <li class="float-left" style="min-width: 250px; text-align: center">
-        {{getMonthName()}}  {{getYear()}}
-      </li>
-      <li class="float-left">
-        &nbsp;&nbsp;
-      </li>
-      <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="nextMonth()">
-          <i class="material-icons">arrow_forward</i>
-        </button>&nbsp;
-      </li>
-    </ul>
+    <form [formGroup]="formMonthYear" (ngSubmit)="monthYearSubmit()">
+      <ul>
+        <li class="float-left">
+          <button type="button" class="btn-floating waves-effect btn-light-blue" *ngIf="flagEditMonthYear==false" (click)="previousMonth()">
+            <i class="material-icons">arrow_back</i>&nbsp;
+          </button>
+        </li>
+        <li class="float-left">
+          <button type="button" class="btn-floating btn-light-red" *ngIf="flagEditMonthYear==true" (click)="monthYearDiscard()">
+            <i class="material-icons">clear</i>
+          </button>
+        </li>
+        <li class="float-left">
+          &nbsp;&nbsp;
+        </li>
+        <li class="float-left" style="min-width: 250px; text-align: center" *ngIf="flagEditMonthYear==false">
+          {{getMonthName()}}  {{getYear()}}
+        </li>
+        <li class="float-left" style="min-width: 170px; text-align: center" *ngIf="flagEditMonthYear==true">
+          <select class="form-control" formControlName="month" style="text-align: center; font-size: x-large">
+            <option>{{getMonthName()}}</option>
+            <option *ngFor="let month of monthList">{{month}}</option>
+          </select>
+        </li>
+        <li class="float-left" *ngIf="flagEditMonthYear==true">
+          <input class="form-control" type="number" formControlName="year"
+                 style="max-width: 80px; text-align: center; font-size: x-large" value="{{getYear()}}">
+        </li>
+        <li class="float-left">
+          &nbsp;&nbsp;
+        </li>
+        <li class="float-left">
+          <button type="button" class="btn-floating waves-effect btn-light-blue" *ngIf="flagEditMonthYear==false" (click)="nextMonth()">
+            <i class="material-icons">arrow_forward</i>
+          </button>&nbsp;
+        </li>
+        <li class="float-left">
+          <button type="submit" class="btn-floating waves-effect btn-light-blue" *ngIf="flagEditMonthYear==true">
+            <i class="material-icons">done</i>
+          </button>
+        </li>
+      </ul>
+    </form>
   </li>
   <li class="float-left">
     <ul class="float-left">
       <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" *ngIf="flagEditMonthYear==false"
+                (click)="editMonthYear()">
           <i class="material-icons">date_range</i>
         </button>&nbsp;
       </li>
       <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="changeToCurrentMonth()">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" *ngIf="flagEditMonthYear==false" (click)="changeToCurrentMonth()">
           <i class="material-icons" style="font-size: small; font-family: Comic Sans MS, Comic Sans, cursive">NOW</i>
         </button>
       </li>
