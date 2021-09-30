@@ -81,7 +81,7 @@ export class ExpenseSearchComponent implements OnInit {
     const toPayDateCriterion: SearchSpecCriterion = {
       key: 'payDate',
       operation: 'LESS',
-      content: this.getPayDateFromDay(this.toPayDateContent.value)
+      content: this.getPayDateToDay(this.toPayDateContent.value)
     };
 
     this.request.setCriteriaRequestBySpec(
@@ -124,6 +124,22 @@ export class ExpenseSearchComponent implements OnInit {
       } else {
         return this.response.responseExpenses.requestedDate?.substring(0, 8) + '0' + day;
       }
+    } else if (this.request.criteriaRequest.requestedDate != null) {
+      return this.request.criteriaRequest.requestedDate
+    }
+    return '2021-07-31'
+  }
+
+  getPayDateToDay(day: string): string {
+    if (null !== day) {
+      const dayNumber = Number(day);
+      if (dayNumber > 9) {
+        return this.response.responseExpenses.requestedDate?.substring(0, 8) + day;
+      } else {
+        return this.response.responseExpenses.requestedDate?.substring(0, 8) + '0' + day;
+      }
+    } else if (this.response.responseExpenses.requestedDate != null) {
+      return this.response.responseExpenses.requestedDate
     }
     return '2021-07-31'
   }

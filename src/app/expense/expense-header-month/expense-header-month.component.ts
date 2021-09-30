@@ -107,7 +107,7 @@ export class ExpenseHeaderMonthComponent implements OnInit {
     } else {
       this.request.criteriaRequest.requestedDate = yearNumber + '-' + monthNumber + '-01';
     }
-
+    this.request.criteriaRequest.searchSpecCriteria = []
     this.response.getMonthExpenses();
   }
 
@@ -127,7 +127,7 @@ export class ExpenseHeaderMonthComponent implements OnInit {
     } else {
       this.request.criteriaRequest.requestedDate = yearNumber + '-' + monthNumber + '-01';
     }
-
+    this.request.criteriaRequest.searchSpecCriteria = []
     this.response.getMonthExpenses();
   }
 
@@ -141,6 +141,7 @@ export class ExpenseHeaderMonthComponent implements OnInit {
 
   changeToCurrentMonth(): void {
     this.request.criteriaRequest.requestedDate = this.response.responseExpenses.currentDate;
+    this.request.criteriaRequest.searchSpecCriteria = []
     this.response.getMonthExpenses();
   }
 
