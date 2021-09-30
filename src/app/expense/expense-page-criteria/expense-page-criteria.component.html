@@ -2,7 +2,7 @@
   <li class="float-left">
     <ul>
       <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="previousPage()">
           <i class="material-icons">arrow_back</i>
         </button>&nbsp;
       </li>
@@ -10,7 +10,7 @@
         Page:  {{ getPageNumber() + '/' + getTotalPages()}}
       </li>
       <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="nextPage()">
           <i class="material-icons">arrow_forward</i>
         </button>&nbsp;
       </li>
