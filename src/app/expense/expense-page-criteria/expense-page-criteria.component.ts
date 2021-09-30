@@ -12,6 +12,9 @@ export class ExpensePageCriteriaComponent implements OnInit {
   private request: ExpenseCriteriaRequestService
   private response: ExpensePageResponseComponent
 
+   flagPageSize10 = true
+   flagPageSize20 = false
+   flagPageSize50 = false
 
   constructor(request: ExpenseCriteriaRequestService,
               response: ExpensePageResponseComponent) {
@@ -34,16 +37,49 @@ export class ExpensePageCriteriaComponent implements OnInit {
     if (this.request.criteriaRequest.page?.number != null
       && this.response.responseExpenses.hasNextPage) {
       this.request.criteriaRequest.page.number += 1
+      this.response.getMonthExpenses();
     }
-    this.response.getMonthExpenses();
   }
 
   previousPage(): void {
     if (this.request.criteriaRequest.page?.number != null
       && this.request.criteriaRequest.page.number > 0) {
       this.request.criteriaRequest.page.number -= 1
+      this.response.getMonthExpenses();
     }
-    this.response.getMonthExpenses();
+  }
+
+  pageSize10(): void {
+    if (this.request.criteriaRequest.page != null) {
+      this.request.criteriaRequest.page.size = 10
+      this.request.criteriaRequest.page.number = 0
+      this.response.getMonthExpenses()
+      this.flagPageSize10 = true
+      this.flagPageSize20 = false
+      this.flagPageSize50 = false
+    }
+  }
+
+  pageSize20(): void {
+    if (this.request.criteriaRequest.page?.size != null) {
+      this.request.criteriaRequest.page.size = 20
+      this.request.criteriaRequest.page.number = 0
+      this.response.getMonthExpenses()
+      this.flagPageSize10 = false
+      this.flagPageSize20 = true
+      this.flagPageSize50 = false
+    }
+  }
+
+  pageSize50(): void {
+    if (this.request.criteriaRequest.page?.size != null) {
+      this.request.criteriaRequest.page.size = 50
+      this.request.criteriaRequest.page.number = 0
+      this.response.getMonthExpenses();
+      this.flagPageSize10 = false
+      this.flagPageSize20 = false
+      this.flagPageSize50 = true
+    }
   }
 
 }

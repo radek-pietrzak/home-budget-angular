@@ -21,18 +21,36 @@
       <li class="float-left">
         Page Size:&nbsp;
       </li>
-      <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue">
+      <li class="float-left" *ngIf="!flagPageSize10">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="pageSize10()">
           10
         </button>&nbsp;
       </li>
-      <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue">
+      <li class="float-left" *ngIf="flagPageSize10">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" style="text-decoration: underline"
+                (click)="pageSize10()">
+          10
+        </button>&nbsp;
+      </li>
+      <li class="float-left" *ngIf="!flagPageSize20">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="pageSize20()">
           20
         </button>&nbsp;
       </li>
-      <li class="float-left">
-        <button type="button" class="btn-floating waves-effect btn-light-blue">
+      <li class="float-left" *ngIf="flagPageSize20">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" style="text-decoration: underline"
+                (click)="pageSize20()">
+          20
+        </button>&nbsp;
+      </li>
+      <li class="float-left" *ngIf="!flagPageSize50">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" (click)="pageSize50()">
+          50
+        </button>
+      </li>
+      <li class="float-left" *ngIf="flagPageSize50">
+        <button type="button" class="btn-floating waves-effect btn-light-blue" style="text-decoration: underline"
+                (click)="pageSize50()">
           50
         </button>
       </li>
