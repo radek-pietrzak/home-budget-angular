@@ -24,9 +24,6 @@ export class ExpenseCriteriaRequestService {
     return this._criteriaRequest;
   }
 
-
-
-
   get page(): Page {
     return this._page;
   }
