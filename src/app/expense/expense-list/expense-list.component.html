@@ -4,6 +4,7 @@
     <tr app-expense-header-sort class="table-head-light-blue"></tr>
     </thead>
     <tbody>
+    <tr app-expense-add-new></tr>
     <tr *ngFor="let expense of responseExpenses.expenses">
       <th scope="row">
         <button type="button" class="btn-floating btn-small waves-effect btn-light-red">
