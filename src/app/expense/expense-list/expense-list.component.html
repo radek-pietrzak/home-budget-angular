@@ -1,30 +1,59 @@
 <div>
-  <table class="table table-sm table-striped-light-blue">
-    <thead>
-    <tr app-expense-header-sort class="table-head-light-blue"></tr>
-    </thead>
-    <tbody>
-    <tr app-expense-add-new></tr>
-    <tr *ngFor="let expense of responseExpenses.expenses">
-      <th scope="row">
-        <button type="button" class="btn-floating btn-small waves-effect btn-light-red">
-        <i class="material-icons">remove</i>
-        </button>
-        <button type="button" class="btn-floating btn-small waves-effect btn-light-blue">
-        <i class="material-icons">visibility</i>
-        </button>
-          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue">
-        <i class="material-icons">edit</i>
+  <form [formGroup]="expenseForm" (ngSubmit)="expenseSubmit()" (keydown.enter)="addExpense()">
+    <table class="table table-sm table-striped-light-blue">
+      <thead>
+      <tr app-expense-header-sort class="table-head-light-blue"></tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="width: 130px;">
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="addExpense()">
+            <i class="material-icons">add</i>
           </button>
-      </th>
-      <td>{{expense.user}}</td>
-      <td>{{expense.amount}}</td>
-      <td>{{expense.currency}}</td>
-      <td>{{expense.description}}</td>
-      <td>{{expense.expenseCategory}}</td>
-      <td>{{expense.payMethod}}</td>
-      <td>{{expense.payDate}}</td>
-    </tr>
-    </tbody>
-  </table>
+        </td>
+        <td>
+          <input type="text" name="user" id="user" formControlName="user" style="max-width: fit-content">
+        </td>
+        <td>
+          <input type="text" name="amount" id="amount" formControlName="amount" style="max-width: fit-content">
+        </td>
+        <td>
+          <input type="text" name="currency" id="currency" formControlName="currency" style="max-width: fit-content">
+        </td>
+        <td>
+          <input type="text" name="description" id="description" formControlName="description" style="max-width: fit-content">
+        </td>
+        <td>
+          <input type="text" name="expenseCategory" id="expenseCategory" formControlName="expenseCategory" style="max-width: fit-content">
+        </td>
+        <td>
+          <input type="text" name="payMethod" id="payMethod" formControlName="payMethod" style="max-width: fit-content">
+        </td>
+        <td>
+          <input type="date" name="payDate" id="payDate" formControlName="payDate" style="max-width: fit-content">
+        </td>
+      </tr>
+      <tr *ngFor="let expense of responseExpenses.expenses">
+        <th scope="row">
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-red">
+            <i class="material-icons">remove</i>
+          </button>
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue">
+            <i class="material-icons">visibility</i>
+          </button>
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue">
+            <i class="material-icons">edit</i>
+          </button>
+        </th>
+        <td>{{expense.user}}</td>
+        <td>{{expense.amount}}</td>
+        <td>{{expense.currency}}</td>
+        <td>{{expense.description}}</td>
+        <td>{{expense.expenseCategory}}</td>
+        <td>{{expense.payMethod}}</td>
+        <td>{{expense.payDate}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
 </div>
