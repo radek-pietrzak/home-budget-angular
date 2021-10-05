@@ -35,7 +35,7 @@
       </tr>
       <tr *ngFor="let expense of responseExpenses.expenses">
         <th scope="row">
-          <button type="button" class="btn-floating btn-small waves-effect btn-light-red">
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-red" (click)="deleteExpense(expense.id)">
             <i class="material-icons">remove</i>
           </button>
           <button type="button" class="btn-floating btn-small waves-effect btn-light-blue">

@@ -11,5 +11,4 @@ export class Expense {
   updatedUser?: string;
   createdDate?: string;
   updatedDate?: string;
-
 }

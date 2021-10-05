@@ -75,4 +75,11 @@ export class ExpenseListComponent implements OnInit {
 
   }
 
+  deleteExpense(id: any) {
+    if (confirm('Are you sure to delete this expense?')) {
+      this.expenseService.deleteExpense(id).subscribe();
+      setTimeout(() => this.response.getMonthExpenses(), 500)
+    }
+  }
+
 }
