@@ -16,10 +16,12 @@ import {ActivatedRoute} from '@angular/router';
   providers: [DatePipe, ExpenseService]
 })
 export class ExpenseListComponent implements OnInit {
-  expenseForm: FormGroup = this.expenseAddFormGroup()
+  expenseForm: FormGroup = this.expenseAddFormGroup();
   private expense: Expense = {};
-  myDate: Date = new Date()
-  stringDate: string | null = ''
+  myDate: Date = new Date();
+  stringDate: string | null = '';
+  edit = false;
+  expenseId: string = '0';
 
   constructor(
     private response: ExpensePageResponseComponent,
@@ -53,6 +55,18 @@ export class ExpenseListComponent implements OnInit {
     });
   }
 
+  expenseUpdateFormGroup(): FormGroup {
+    return this.expenseForm = new FormGroup({
+      user: new FormControl(this.expense.user, Validators.required),
+      amount: new FormControl(this.expense.amount, Validators.required),
+      currency: new FormControl(this.expense.currency, Validators.required),
+      description: new FormControl(this.expense.description, Validators.required),
+      payDate: new FormControl(this.expense.payDate, Validators.required),
+      payMethod: new FormControl(this.expense.payMethod, Validators.required),
+      expenseCategory: new FormControl(this.expense.expenseCategory, Validators.required),
+    });
+  }
+
   addExpense(): void {
     const expenseModification: ExpenseModification = {
       user: this.expenseForm.value.user,
@@ -73,6 +87,50 @@ export class ExpenseListComponent implements OnInit {
 
     setTimeout(() => this.response.getMonthExpenses(), 500)
 
+  }
+
+  updateExpense() {
+    const expenseModification: ExpenseModification = {
+      id: this.expenseId,
+      user: this.expenseForm.value.user,
+      amount: this.expenseForm.value.amount,
+      currency: this.expenseForm.value.currency,
+      description: this.expenseForm.value.description,
+      payDate: this.expenseForm.value.payDate,
+      payMethod: this.expenseForm.value.payMethod,
+      expenseCategory: this.expenseForm.value.expenseCategory,
+    };
+
+    const expenseRequest: ExpenseRequest = {
+      expense: expenseModification
+    };
+
+    this.expenseService.editExpense(expenseRequest).subscribe();
+    setTimeout(() => this.response.getMonthExpenses(), 500)
+
+  }
+
+  setEditOn(id: any): void {
+    this.expenseId = id;
+    this.expenseService.getExpense(id).subscribe(response => this.expense = response);
+
+    setTimeout(() => this.expenseUpdateFormGroup(), 100);
+
+    this.edit = true;
+
+  }
+
+  setEditOffNoUpdate() {
+    setTimeout(() => this.expenseAddFormGroup(), 100);
+    this.edit = false;
+    this.response.getMonthExpenses();
+  }
+
+  setEditOffWithUpdate() {
+    setTimeout(() => this.expenseAddFormGroup(), 100);
+    this.updateExpense();
+    this.edit = false;
+    this.response.getMonthExpenses();
   }
 
   deleteExpense(id: any) {

@@ -32,4 +32,8 @@ export class ExpenseService {
     return this.httpClient.delete<string>(this.url + '/' + id);
   }
 
+  getExpense(id: string): Observable<Expense> {
+    return this.httpClient.get<Expense>(this.url + '/' + id);
+  }
+
 }

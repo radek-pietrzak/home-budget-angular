@@ -78,4 +78,8 @@
   float: right;
 }
 
+.input-fit {
+  max-width: fit-content
+}
+
 
