@@ -18,17 +18,18 @@ import {ActivatedRoute} from '@angular/router';
 export class ExpenseListComponent implements OnInit {
   expenseForm: FormGroup = this.expenseAddFormGroup();
   private expense: Expense = {};
-  myDate: Date = new Date();
+  todayDate: Date = new Date();
   stringDate: string | null = '';
   edit = false;
   expenseId: string = '0';
+  addNew = false;
 
   constructor(
     private response: ExpensePageResponseComponent,
     private datePipe: DatePipe,
     private route: ActivatedRoute,
     private expenseService: ExpenseService) {
-    this.stringDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+    this.stringDate = this.datePipe.transform(this.todayDate, 'yyyy-MM-dd');
   }
 
   ngOnInit(): void {
@@ -138,6 +139,10 @@ export class ExpenseListComponent implements OnInit {
       this.expenseService.deleteExpense(id).subscribe();
       setTimeout(() => this.response.getMonthExpenses(), 500)
     }
+  }
+
+  addNewRow() {
+    this.addNew = !this.addNew;
   }
 
 }
