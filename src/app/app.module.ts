@@ -13,6 +13,7 @@ import { ExpensePageResponseComponent } from './expense/expense-page-response/ex
 import { ExpenseHeaderMonthComponent } from './expense/expense-header-month/expense-header-month.component';
 import { ExpensePageCriteriaComponent } from './expense/expense-page-criteria/expense-page-criteria.component';
 import { ExpenseSearchComponent } from './expense/expense-search/expense-search.component';
+import { ExpenseDetailsComponent } from './expense/expense-details/expense-details.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
   }, {
     component: ExpensePageResponseComponent,
     path: 'expense'
+  }, {
+    component: ExpenseDetailsComponent,
+    path: 'expense/:id'
   }
 ]
 
@@ -38,6 +42,7 @@ const routes: Routes = [
     ExpenseHeaderMonthComponent,
     ExpensePageCriteriaComponent,
     ExpenseSearchComponent,
+    ExpenseDetailsComponent,
   ],
   imports: [
     BrowserModule,

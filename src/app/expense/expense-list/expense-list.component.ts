@@ -21,7 +21,7 @@ export class ExpenseListComponent implements OnInit {
   todayDate: Date = new Date();
   stringDate: string | null = '';
   edit = false;
-  expenseId: string = '0';
+  expenseId: any = '0';
   addNew = false;
 
   constructor(

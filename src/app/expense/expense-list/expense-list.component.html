@@ -13,7 +13,7 @@
       <tr *ngIf="!edit && addNew">
         <td style="width: 130px;">
           <button type="button" class="btn-floating btn-small waves-effect btn-light-red" (click)="addNewRow()">
-            <i class="material-icons">arrow_back</i>
+            <i class="material-icons">arrow_back_ios_new</i>
           </button>
           <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="addExpense()">
             <i class="material-icons">add</i>
@@ -49,7 +49,8 @@
                   (click)="deleteExpense(expense.id)">
             <i class="material-icons">remove</i>
           </button>
-          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue">
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue"
+                  [routerLink]="['/expense/', expense.id]" (click)="expenseId=expense.id">
             <i class="material-icons">visibility</i>
           </button>
           <button type="button" class="btn-floating btn-small waves-effect btn-light-blue"

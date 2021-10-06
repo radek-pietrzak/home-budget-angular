@@ -1,0 +1,121 @@
+<div class="card my-auto">
+  <h5>Expense Details</h5>
+  <div class="card-body">
+    <form [formGroup]="expenseForm" (ngSubmit)="updateExpense()">
+      <ul>
+        <li class="float-left">
+          <button type="button" class="btn-floating waves-effect btn-light-blue" [routerLink]="['/expense/']">
+            <i class="material-icons">arrow_back_ios_new</i>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn-floating waves-effect btn-light-blue" *ngIf="!edit" (click)="setEditOn()">
+            <i class="material-icons">edit</i>
+          </button>
+        </li>
+        <li class="float-left">
+          <button type="submit" class="btn-floating waves-effect btn-light-blue" *ngIf="edit">
+            <i class="material-icons">done</i>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn-floating waves-effect btn-light-red" *ngIf="edit" (click)="discardChanges()">
+            <i class="material-icons">clear</i>
+          </button>
+        </li>
+      </ul>
+      <table class="table table-sm table-striped-light-blue" style="max-width: 400px">
+        <colgroup>
+          <col span="1" style="width: 40%;">
+          <col span="1" style="width: 60%;">
+        </colgroup>
+        <thead class="table-head-light-blue">
+        <tr>
+          <th>Name</th>
+          <th *ngIf="!edit">Value</th>
+          <th *ngIf="edit">Edit Value</th>
+        </tr>
+        </thead>
+        <tbody style="font-weight: normal">
+        <tr class="table-stripped">
+          <td>Id</td>
+          <td *ngIf="!edit">{{expense.id}}</td>
+          <td *ngIf="edit">{{expense.id}}</td>
+        </tr>
+        <tr class="table-stripped">
+          <td>User</td>
+          <td *ngIf="!edit">{{expense.user}}</td>
+          <td *ngIf="edit">
+            <input type="text" class="form-control" formControlName="user" name="user" id="user" value="{{expense.user}}">
+          </td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Amount</td>
+          <td *ngIf="!edit">{{expense.amount}}</td>
+          <td *ngIf="edit">
+            <input type="text" class="form-control" formControlName="amount" name="amount" id="amount" value="{{expense.amount}}">
+          </td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Currency</td>
+          <td *ngIf="!edit">{{expense.currency}}</td>
+          <td *ngIf="edit">
+            <input type="text" class="form-control" formControlName="currency" name="currency" id="currency">
+          </td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Description</td>
+          <td *ngIf="!edit">{{expense.description}}</td>
+          <td *ngIf="edit">
+            <input type="text" class="form-control" formControlName="description" name="description" id="description">
+          </td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Category</td>
+          <td *ngIf="!edit">{{expense?.expenseCategory}}</td>
+          <td *ngIf="edit">
+            <input type="text" class="form-control" formControlName="expenseCategory" name="expenseCategory"
+                   id="expenseCategory" value="{{expense.expenseCategory}}">
+          </td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Pay Method</td>
+          <td *ngIf="!edit">{{expense?.payMethod}}</td>
+          <td *ngIf="edit">
+            <input type="text" class="form-control" formControlName="payMethod" name="payMethod"
+                   id="payMethod" value="{{expense.payMethod}}">
+          </td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Pay Date</td>
+          <td *ngIf="!edit">{{expense.payDate}}</td>
+          <td *ngIf="edit">
+            <input type="date" class="form-control" formControlName="payDate" name="payDate" id="payDate">
+          </td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Created by</td>
+          <td *ngIf="!edit">{{expense?.createdUser}}</td>
+          <td *ngIf="edit">{{expense?.createdUser}}</td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Updated by</td>
+          <td *ngIf="!edit">{{expense?.updatedUser}}</td>
+          <td *ngIf="edit">{{expense?.updatedUser}}</td>
+        </tr>
+        <tr class="table-stripped">
+          <td>Created date</td>
+          <td *ngIf="!edit">{{expense?.createdDate}}</td>
+          <td *ngIf="edit">{{expense?.createdDate}}</td>
+        <tr class="table-stripped">
+          <td>Updated date</td>
+          <td *ngIf="!edit">{{expense?.updatedDate}}</td>
+          <td *ngIf="edit">{{expense?.updatedDate}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+
+
