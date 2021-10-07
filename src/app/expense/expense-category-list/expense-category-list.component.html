@@ -1,0 +1,35 @@
+<div style="margin: 0 0 10px 0; font-size: xx-large">
+  Expense Category List
+</div>
+<div>
+  <!--  <form [formGroup]="categoryForm" (ngSubmit)="updateCategory()">-->
+  <table class="table table-sm table-striped-light-blue">
+    <thead class="table-head-light-blue">
+    <tr>
+      <td>
+        Action
+      </td>
+      <td>
+        Id
+      </td>
+      <td>
+        Category
+      </td>
+      <td>
+        Number of related expenses
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let category of response.expenseCategories">
+      <td></td>
+      <td>{{ category.id }}</td>
+      <td>{{ category.categoryName }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <!--  </form>-->
+</div>
+
+
+

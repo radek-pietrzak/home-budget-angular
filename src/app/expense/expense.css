@@ -1,6 +1,7 @@
 .table-head-light-blue {
   color: black;
   background-color: #99ccff;
+  font-weight: bold;
 }
 
 .table-striped-light-blue > tbody > tr:nth-child(odd) > td,
