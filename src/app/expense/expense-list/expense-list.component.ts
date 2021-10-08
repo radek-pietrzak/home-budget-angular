@@ -3,7 +3,6 @@ import {ResponseExpenses} from "../model/response-expenses";
 import {ExpenseService} from "../service/expense.service";
 import {ExpenseCriteriaRequest} from "../model/expense-criteria-request";
 import {ExpenseCriteriaRequestService} from "../service/expense-criteria-request.service";
-import {Expense} from "../model/expense";
 
 @Component({
   selector: 'app-expense-list',
