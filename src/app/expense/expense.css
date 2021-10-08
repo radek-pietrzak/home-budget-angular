@@ -1,0 +1,86 @@
+.table-head-light-blue {
+  color: black;
+  background-color: #99ccff;
+  font-weight: bold;
+}
+
+.table-striped-light-blue > tbody > tr:nth-child(odd) > td,
+.table-striped-light-blue > tbody > tr:nth-child(odd) > th {
+  background-color: #eaf3fc;
+}
+
+.table-striped-light-blue > tbody > tr:nth-child(even) > td,
+.table-striped-light-blue > tbody > tr:nth-child(even) > th {
+  background-color: white;
+}
+
+.table-striped-light-blue > tbody > tr:hover > td,
+.table-striped-light-blue > tbody > tr:hover > th {
+  background-color: #c8e3fd;
+}
+
+
+
+.btn-light-blue {
+  color: white;
+  background-color: #99ccff;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px black;
+}
+
+.btn-light-blue:active {
+  color: white;
+  background-color: #99ccff;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px black;
+}
+
+.btn-light-blue:hover {
+  color: white;
+  background-color: #72b7fc;
+  font-weight: bold;
+}
+
+.btn-light-red:active {
+  color: white;
+  background-color: #ffb3b3;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px black;
+}
+
+.btn-light-red:hover {
+  color: white;
+  background-color: #ff8a8a;
+  font-weight: bold;
+}
+
+.btn-light-red {
+  color: white;
+  background-color: #ffb3b3;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px black;
+}
+
+.buttons-light-grey {
+  color: white;
+  background-color: #c5c5c5;
+}
+
+.page-name {
+  color: black;
+  padding: 10px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.input-fit {
+  max-width: fit-content
+}
+
+

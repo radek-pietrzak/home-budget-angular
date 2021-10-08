@@ -1,0 +1,107 @@
+<th scope="col" style="width: 130px;">Action</th>
+<th scope="col">
+  User
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortUpUser()"
+          *ngIf="showSortDefaultUserBtn">
+    <i class="material-icons">unfold_more</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDownUser()"
+          *ngIf="showSortUpUserBtn">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDefault()"
+          *ngIf="showSortDownUserBtn">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </button>
+</th>
+<th scope="col">
+  Amount
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortUpAmount()"
+          *ngIf="showSortDefaultAmountBtn">
+    <i class="material-icons">unfold_more</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDownAmount()"
+          *ngIf="showSortUpAmountBtn">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDefault()"
+          *ngIf="showSortDownAmountBtn">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </button>
+</th>
+<th scope="col">
+  Currency
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortUpCurrency()"
+          *ngIf="showSortDefaultCurrencyBtn">
+    <i class="material-icons">unfold_more</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDownCurrency()"
+          *ngIf="showSortUpCurrencyBtn">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDefault()"
+          *ngIf="showSortDownCurrencyBtn">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </button>
+</th>
+<th scope="col">
+  Description
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortUpDescription()"
+          *ngIf="showSortDefaultDescriptionBtn">
+    <i class="material-icons">unfold_more</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDownDescription()"
+          *ngIf="showSortUpDescriptionBtn">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDefault()"
+          *ngIf="showSortDownDescriptionBtn">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </button>
+</th>
+<th scope="col">
+  Category
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortUpCategory()"
+          *ngIf="showSortDefaultCategoryBtn">
+    <i class="material-icons">unfold_more</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDownCategory()"
+          *ngIf="showSortUpCategoryBtn">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDefault()"
+          *ngIf="showSortDownCategoryBtn">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </button>
+</th>
+<th scope="col">
+  Pay Method
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortUpPayMethod()"
+          *ngIf="showSortDefaultPayMethodBtn">
+    <i class="material-icons">unfold_more</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDownPayMethod()"
+          *ngIf="showSortUpPayMethodBtn">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDefault()"
+          *ngIf="showSortDownPayMethodBtn">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </button>
+</th>
+<th scope="col">
+  Pay Date
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortUpPayDate()"
+          *ngIf="showSortDefaultPayDateBtn">
+    <i class="material-icons">unfold_more</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDownPayDate()"
+          *ngIf="showSortUpPayDateBtn">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+  <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="sortDefault()"
+          *ngIf="showSortDownPayDateBtn">
+    <i class="material-icons">keyboard_arrow_down</i>
+  </button>
+</th>
+

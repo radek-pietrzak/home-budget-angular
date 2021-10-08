@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="submitSpecCriteria()">
+<ul class="float-right">
+  <li class="float-left">
+    <button type="button" class="btn-floating btn-light-red" (click)="clearSearch()" [disabled]="clearBtnDisabled">
+      <i class="material-icons">clear</i>
+    </button>
+  </li>
+  <li class="float-left">
+    <button type="submit" class="btn-floating btn-light-blue">
+      <i class="material-icons">search</i>
+    </button>
+  </li>
+  <li class="float-left" formGroupName="search">
+    <label for="search">&nbsp;</label>
+    <input type="text" class="float-right" name="content" id="search"
+           placeholder="Search" formControlName="content" style="width: 150px">
+  </li>
+  <li class="float-left" formGroupName="fromAmount">
+    <label for="fromAmount">Amount:</label>
+    <input type="text" class="float-right" name="fromAmount"
+           id="fromAmount" placeholder="from" formControlName="content" style="width: 80px">
+  </li>
+  <li class="float-left" formGroupName="toAmount">
+    <label for="toAmount">&nbsp;</label>
+    <input type="text" class="float-right" name="toAmount"
+           id="toAmount" placeholder="to" formControlName="content" style="width: 80px">
+  </li>
+  <li class="float-left" formGroupName="fromPayDate">
+    <label class="float-left" for="fromPayDate">Pay Day: from</label>
+    <input type="text" name="fromPayDate"
+           id="fromPayDate" placeholder="{{1}}" formControlName="content" style="width: 40px">
+  </li>
+  <li class="float-left" formGroupName="toPayDate">
+    <label class="float-left" for="toPayDate">to:</label>
+    <input type="text" class="float-left" name="toPayDate"
+           id="toPayDate" placeholder="{{getLastDayOfMonth()}}" formControlName="content" style="width: 40px">
+  </li>
+</ul>
+</form>
+

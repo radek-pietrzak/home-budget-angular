@@ -1,1 +1,107 @@
-<p>expense-list works!</p>
+<div *ngIf="addNew==false" style="margin: 0 0 10px 0">
+  <button type="button" class="btn-small waves-effect btn-light-blue" (click)="addNewRow()">
+    Add New
+  </button>
+</div>
+<div>
+  <form [formGroup]="expenseForm" (ngSubmit)="expenseSubmit()">
+    <table class="table table-sm table-striped-light-blue">
+      <thead>
+      <tr app-expense-header-sort class="table-head-light-blue"></tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="!edit && addNew">
+        <td style="width: 130px;">
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-red" (click)="addNewRow()">
+            <i class="material-icons">arrow_back_ios_new</i>
+          </button>
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue" (click)="addExpense()">
+            <i class="material-icons">add</i>
+          </button>
+        </td>
+        <td>
+          <input type="text" name="user" id="user" formControlName="user" class="input-fit">
+        </td>
+        <td>
+          <input type="text" name="amount" id="amount" formControlName="amount" class="input-fit">
+        </td>
+        <td>
+          <input type="text" name="currency" id="currency" formControlName="currency" class="input-fit">
+        </td>
+        <td>
+          <input type="text" name="description" id="description" formControlName="description"
+                 class="input-fit">
+        </td>
+        <td>
+          <input type="text" name="expenseCategory" id="expenseCategory" formControlName="expenseCategory"
+                 class="input-fit">
+        </td>
+        <td>
+          <input type="text" name="payMethod" id="payMethod" formControlName="payMethod" class="input-fit">
+        </td>
+        <td>
+          <input type="date" name="payDate" id="payDate" formControlName="payDate" class="input-fit">
+        </td>
+      </tr>
+      <tr *ngFor="let expense of responseExpenses.expenses">
+        <th scope="row" *ngIf="!edit || edit && expense.id != expenseId">
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-red"
+                  (click)="deleteExpense(expense.id)">
+            <i class="material-icons">remove</i>
+          </button>
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue"
+                  [routerLink]="['/expense/', expense.id]" (click)="expenseId=expense.id">
+            <i class="material-icons">visibility</i>
+          </button>
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue"
+                  (click)="setEditOn(expense.id)">
+            <i class="material-icons">edit</i>
+          </button>
+        </th>
+        <th scope="row" *ngIf="edit && expense.id == expenseId">
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-red"
+                  (click)="setEditOffNoUpdate()">
+            <i class="material-icons">clear</i>
+          </button>
+          <button type="button" class="btn-floating btn-small waves-effect btn-light-blue"
+                  (click)="setEditOffWithUpdate()">
+            <i class="material-icons">done</i>
+          </button>
+        </th>
+        <td *ngIf="!edit || edit && expense.id != expenseId">{{ expense.user }}</td>
+        <td *ngIf="edit && expense.id == expenseId">
+          <input type="text" class="form-control input-fit" formControlName="user" name="user" id="userEdit">
+        </td>
+        <td *ngIf="!edit || edit && expense.id != expenseId">{{ expense.amount }}</td>
+        <td *ngIf="edit && expense.id == expenseId">
+          <input type="text" class="form-control input-fit" formControlName="amount" name="amount" id="amountEdit">
+        </td>
+        <td *ngIf="!edit || edit && expense.id != expenseId">{{ expense.currency }}</td>
+        <td *ngIf="edit && expense.id == expenseId">
+          <input type="text" class="form-control input-fit" formControlName="currency" name="currency"
+                 id="currencyEdit">
+        </td>
+        <td *ngIf="!edit || edit && expense.id != expenseId">{{ expense.description }}</td>
+        <td *ngIf="edit && expense.id == expenseId">
+          <input type="text" class="form-control input-fit" formControlName="description" name="description"
+                 id="descriptionEdit">
+        </td>
+        <td *ngIf="!edit || edit && expense.id != expenseId">{{ expense.expenseCategory }}</td>
+        <td *ngIf="edit && expense.id == expenseId">
+          <input type="text" class="form-control input-fit" formControlName="expenseCategory" name="expenseCategory"
+                 id="expenseCategoryEdit">
+        </td>
+        <td *ngIf="!edit || edit && expense.id != expenseId">{{ expense.payMethod }}</td>
+        <td *ngIf="edit && expense.id == expenseId">
+          <input type="text" class="form-control input-fit" formControlName="payMethod" name="payMethod"
+                 id="payMethodEdit">
+        </td>
+        <td *ngIf="!edit || edit && expense.id != expenseId">{{ expense.payDate }}</td>
+        <td *ngIf="edit && expense.id == expenseId">
+          <input type="date" class="form-control input-fit" formControlName="payDate" name="payDate" id="payDateEdit">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
