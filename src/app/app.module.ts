@@ -15,6 +15,7 @@ import { ExpensePageCriteriaComponent } from './expense/expense-page-criteria/ex
 import { ExpenseSearchComponent } from './expense/expense-search/expense-search.component';
 import { ExpenseDetailsComponent } from './expense/expense-details/expense-details.component';
 import { ExpenseCategoryListComponent } from './expense/expense-category-list/expense-category-list.component';
+import {TransactionPageResponseComponent} from "./expense/transaction-page-response/expense-page-response.component";
 
 const routes: Routes = [
   {
@@ -33,7 +34,11 @@ const routes: Routes = [
   }, {
     component: ExpenseCategoryListComponent,
     path: 'expense-category'
+  }, {
+    component: TransactionPageResponseComponent,
+    path: 'transaction'
   }
+
 ]
 
 @NgModule({
@@ -48,6 +53,7 @@ const routes: Routes = [
     ExpenseSearchComponent,
     ExpenseDetailsComponent,
     ExpenseCategoryListComponent,
+    TransactionPageResponseComponent
   ],
   imports: [
     BrowserModule,
